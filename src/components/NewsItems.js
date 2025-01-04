@@ -3,6 +3,9 @@ import React from "react";
 import "./NewsItems.css"
 
 const NewsItems = ({ item }) => {
+  if (!item || !item.urlToImage) {
+    return null; // If no image, return nothing
+  }
   const websiteUrl = item.url;
   const website = websiteUrl.split("https://").pop().split("/")[0];
   const date = item.publishedAt;
